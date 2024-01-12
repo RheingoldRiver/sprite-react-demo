@@ -62,12 +62,12 @@ function App() {
           }}
         ></input>
       </div>
-      <Sprite width={width} height={height} val={champ} data={data} file="/championSprite.png" />
+      <Sprite width={width} height={height} val={champ} data={data} src="/championSprite.png" />
       <Sprite
         width={width}
         height={height}
         val={champ}
-        file="/championSprite.png"
+        src="/championSprite.png"
         sheetWidth={data.sheetWidth}
         sheetHeight={data.sheetHeight}
         imageWidth={data.imageWidth}
@@ -76,12 +76,12 @@ function App() {
         y={curChampData.y}
       />
       <div className="w-20 h-20">
-        <Sprite val={champ} data={data} file="/championSprite.png" />
+        <Sprite val={champ} data={data} src="/championSprite.png" />
       </div>
       <div className="w-20 h-20">
         <Sprite
           val={champ}
-          file="/championSprite.png"
+          src="/championSprite.png"
           sheetWidth={data.sheetWidth}
           sheetHeight={data.sheetHeight}
           imageWidth={data.imageWidth}

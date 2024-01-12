@@ -20,7 +20,7 @@ function SpriteImage({
   height,
   val,
   data,
-  file,
+  src,
   sheetWidth,
   sheetHeight,
   imageWidth,
@@ -46,7 +46,7 @@ function SpriteImage({
   return (
     <div
       style={{
-        backgroundImage: `url(${file})`,
+        backgroundImage: `url(${src})`,
         width: scaleFactorW * origWidth,
         height: scaleFactorH * origHeight,
         overflow: "hidden",

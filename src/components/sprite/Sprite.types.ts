@@ -12,7 +12,7 @@ export type SpriteData = {
 };
 
 export interface SpriteProps {
-   file: string;
+   src: string;
    width?: number;
    height?: number;
    val?: string;
