@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toNumber } from "lodash";
-import Sprite from "./components/sprite/Sprite";
-import data from "./components/sprite/data.json";
+import Sprite from "./components/Sprite/Sprite";
+import data from "./components/Sprite/data.json";
 
 function App() {
   const [width, setWidth] = useState(30);

@@ -1,44 +1,13 @@
 import { useMeasure } from "react-use";
 import { Ref } from "react";
+import { SpriteCoordinates, SpriteImageProps, SpriteProps } from "./Sprite.types";
 
-export type SpriteCoordinates = {
-  x: number;
-  y: number;
-};
-
-export type SpriteData = {
-  imageWidth: number;
-  imageHeight: number;
-  sheetWidth: number;
-  sheetHeight: number;
-  sprites: Record<string, SpriteCoordinates>;
-};
-
-interface SpritePops {
-  file: string;
-  width?: number;
-  height?: number;
-  val?: string;
-  data?: SpriteData;
-  sheetWidth?: number;
-  sheetHeight?: number;
-  imageWidth?: number;
-  imageHeight?: number;
-  x?: number;
-  y?: number;
-}
-
-interface SpriteImageProps extends SpritePops {
-  width: number;
-  height: number;
-}
-
-const Sprite = (props: SpritePops) => {
+const Sprite = (props: SpriteProps) => {
   const [ref, { width, height }] = useMeasure();
 
   if (props.width === undefined && props.height === undefined) {
     return (
-      <div ref={ref as Ref<HTMLDivElement>} className="w-full h-full">
+      <div ref={ref as Ref<HTMLDivElement>} style={{ width: "100%", height: "100%" }}>
         <SpriteImage {...props} width={width} height={height} />
       </div>
     );
