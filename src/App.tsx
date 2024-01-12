@@ -68,10 +68,10 @@ function App() {
         height={height}
         val={champ}
         src="/championSprite.png"
-        sheetWidth={data.sheetWidth}
-        sheetHeight={data.sheetHeight}
-        imageWidth={data.imageWidth}
-        imageHeight={data.imageHeight}
+        totalWidth={data.totalWidth}
+        totalHeight={data.totalHeight}
+        tileWidth={data.tileWidth}
+        tileHeight={data.tileHeight}
         x={curChampData.x}
         y={curChampData.y}
       />
@@ -82,10 +82,10 @@ function App() {
         <Sprite
           val={champ}
           src="/championSprite.png"
-          sheetWidth={data.sheetWidth}
-          sheetHeight={data.sheetHeight}
-          imageWidth={data.imageWidth}
-          imageHeight={data.imageHeight}
+          totalWidth={data.totalWidth}
+          totalHeight={data.totalHeight}
+          tileWidth={data.tileWidth}
+          tileHeight={data.tileHeight}
           x={curChampData.x}
           y={curChampData.y}
         />

@@ -21,10 +21,10 @@ function SpriteImage({
   val,
   data,
   src,
-  sheetWidth,
-  sheetHeight,
-  imageWidth,
-  imageHeight,
+  totalWidth,
+  totalHeight,
+  tileWidth,
+  tileHeight,
   x,
   y,
 }: SpriteImageProps) {
@@ -34,11 +34,11 @@ function SpriteImage({
     return "Please provide a valid champion to display, thanks :)";
   }
 
-  const origWidth = data ? data.imageWidth : (imageWidth as number);
-  const origHeight = data ? data.imageHeight : (imageHeight as number);
+  const origWidth = data ? data.tileWidth : (tileWidth as number);
+  const origHeight = data ? data.tileHeight : (tileHeight as number);
 
-  sheetWidth = data ? data.sheetWidth : (sheetWidth as number);
-  sheetHeight = data ? data.sheetWidth : (sheetHeight as number);
+  totalWidth = data ? data.totalWidth : (totalWidth as number);
+  totalHeight = data ? data.totalWidth : (totalHeight as number);
 
   const scaleFactorW = width / origWidth;
   const scaleFactorH = height / origHeight;
@@ -50,7 +50,7 @@ function SpriteImage({
         width: scaleFactorW * origWidth,
         height: scaleFactorH * origHeight,
         overflow: "hidden",
-        backgroundSize: `${scaleFactorW * sheetWidth}px ${scaleFactorH * sheetHeight}px`,
+        backgroundSize: `${scaleFactorW * totalWidth}px ${scaleFactorH * totalHeight}px`,
         backgroundPosition: `-${scaleFactorW * valData.x}px -${scaleFactorH * valData.y}px`,
       }}
     ></div>

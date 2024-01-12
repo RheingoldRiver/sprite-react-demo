@@ -1,8 +1,8 @@
 {
-  "imageWidth": 30,
-  "imageHeight": 30,
-  "sheetWidth": 402,
-  "sheetHeight": 402,
+  "tileWidth": 30,
+  "tileHeight": 30,
+  "totalWidth": 402,
+  "totalHeight": 402,
   "sprites": {
     "-1": {
       "x": 0,

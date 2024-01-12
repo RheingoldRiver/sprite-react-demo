@@ -4,10 +4,10 @@ export type SpriteCoordinates = {
 };
 
 export type SpriteData = {
-   imageWidth: number;
-   imageHeight: number;
-   sheetWidth: number;
-   sheetHeight: number;
+   tileWidth: number;
+   tileHeight: number;
+   totalWidth: number;
+   totalHeight: number;
    sprites: Record<string, SpriteCoordinates>;
 };
 
@@ -17,10 +17,10 @@ export interface SpriteProps {
    height?: number;
    val?: string;
    data?: SpriteData;
-   sheetWidth?: number;
-   sheetHeight?: number;
-   imageWidth?: number;
-   imageHeight?: number;
+   totalWidth?: number;
+   totalHeight?: number;
+   tileWidth?: number;
+   tileHeight?: number;
    x?: number;
    y?: number;
 }
