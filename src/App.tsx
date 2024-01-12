@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toNumber } from "lodash";
-import Sprite from "./components/sprite/Sprite";
-import data from "./components/sprite/data.json";
+import Sprite from "./components/Sprite/Sprite";
+import data from "./components/Sprite/data.json";
 
 function App() {
   const [width, setWidth] = useState(30);
@@ -62,30 +62,30 @@ function App() {
           }}
         ></input>
       </div>
-      <Sprite width={width} height={height} val={champ} data={data} file="/championSprite.png" />
+      <Sprite width={width} height={height} val={champ} data={data} src="/championSprite.png" />
       <Sprite
         width={width}
         height={height}
         val={champ}
-        file="/championSprite.png"
-        sheetWidth={data.sheetWidth}
-        sheetHeight={data.sheetHeight}
-        imageWidth={data.imageWidth}
-        imageHeight={data.imageHeight}
+        src="/championSprite.png"
+        totalWidth={data.totalWidth}
+        totalHeight={data.totalHeight}
+        tileWidth={data.tileWidth}
+        tileHeight={data.tileHeight}
         x={curChampData.x}
         y={curChampData.y}
       />
       <div className="w-20 h-20">
-        <Sprite val={champ} data={data} file="/championSprite.png" />
+        <Sprite val={champ} data={data} src="/championSprite.png" />
       </div>
       <div className="w-20 h-20">
         <Sprite
           val={champ}
-          file="/championSprite.png"
-          sheetWidth={data.sheetWidth}
-          sheetHeight={data.sheetHeight}
-          imageWidth={data.imageWidth}
-          imageHeight={data.imageHeight}
+          src="/championSprite.png"
+          totalWidth={data.totalWidth}
+          totalHeight={data.totalHeight}
+          tileWidth={data.tileWidth}
+          tileHeight={data.tileHeight}
           x={curChampData.x}
           y={curChampData.y}
         />

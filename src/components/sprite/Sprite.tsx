@@ -1,44 +1,13 @@
 import { useMeasure } from "react-use";
 import { Ref } from "react";
+import { SpriteCoordinates, SpriteImageProps, SpriteProps } from "./Sprite.types";
 
-export type SpriteCoordinates = {
-  x: number;
-  y: number;
-};
-
-export type SpriteData = {
-  imageWidth: number;
-  imageHeight: number;
-  sheetWidth: number;
-  sheetHeight: number;
-  sprites: Record<string, SpriteCoordinates>;
-};
-
-interface SpritePops {
-  file: string;
-  width?: number;
-  height?: number;
-  val?: string;
-  data?: SpriteData;
-  sheetWidth?: number;
-  sheetHeight?: number;
-  imageWidth?: number;
-  imageHeight?: number;
-  x?: number;
-  y?: number;
-}
-
-interface SpriteImageProps extends SpritePops {
-  width: number;
-  height: number;
-}
-
-const Sprite = (props: SpritePops) => {
+const Sprite = (props: SpriteProps) => {
   const [ref, { width, height }] = useMeasure();
 
   if (props.width === undefined && props.height === undefined) {
     return (
-      <div ref={ref as Ref<HTMLDivElement>} className="w-full h-full">
+      <div ref={ref as Ref<HTMLDivElement>} style={{ width: "100%", height: "100%" }}>
         <SpriteImage {...props} width={width} height={height} />
       </div>
     );
@@ -51,11 +20,11 @@ function SpriteImage({
   height,
   val,
   data,
-  file,
-  sheetWidth,
-  sheetHeight,
-  imageWidth,
-  imageHeight,
+  src,
+  totalWidth,
+  totalHeight,
+  tileWidth,
+  tileHeight,
   x,
   y,
 }: SpriteImageProps) {
@@ -65,11 +34,11 @@ function SpriteImage({
     return "Please provide a valid champion to display, thanks :)";
   }
 
-  const origWidth = data ? data.imageWidth : (imageWidth as number);
-  const origHeight = data ? data.imageHeight : (imageHeight as number);
+  const origWidth = data ? data.tileWidth : (tileWidth as number);
+  const origHeight = data ? data.tileHeight : (tileHeight as number);
 
-  sheetWidth = data ? data.sheetWidth : (sheetWidth as number);
-  sheetHeight = data ? data.sheetWidth : (sheetHeight as number);
+  totalWidth = data ? data.totalWidth : (totalWidth as number);
+  totalHeight = data ? data.totalWidth : (totalHeight as number);
 
   const scaleFactorW = width / origWidth;
   const scaleFactorH = height / origHeight;
@@ -77,11 +46,11 @@ function SpriteImage({
   return (
     <div
       style={{
-        backgroundImage: `url(${file})`,
+        backgroundImage: `url(${src})`,
         width: scaleFactorW * origWidth,
         height: scaleFactorH * origHeight,
         overflow: "hidden",
-        backgroundSize: `${scaleFactorW * sheetWidth}px ${scaleFactorH * sheetHeight}px`,
+        backgroundSize: `${scaleFactorW * totalWidth}px ${scaleFactorH * totalHeight}px`,
         backgroundPosition: `-${scaleFactorW * valData.x}px -${scaleFactorH * valData.y}px`,
       }}
     ></div>
