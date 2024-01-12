@@ -11,11 +11,13 @@ function App() {
   const [curChamp, setCurChamp] = useState(champ);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ml-4 mt-4 gap-2">
       <div className="flex flex-row gap-2">
         <label htmlFor="w">Width of sprite:</label>{" "}
         <input
+          className="border border-px border-solid border-black rounded"
           id="w"
+          size={2}
           type="text"
           value={curWidth}
           onBlur={() => {
@@ -29,7 +31,9 @@ function App() {
       <div className="flex flex-row gap-2">
         <label htmlFor="h">Height of sprite:</label>{" "}
         <input
+          className="border border-px border-solid border-black rounded"
           id="h"
+          size={2}
           type="text"
           value={curHeight}
           onBlur={() => {
@@ -43,6 +47,7 @@ function App() {
       <div className="flex flex-row gap-2">
         <label htmlFor="champ">Champion to show:</label>
         <input
+          className="border border-px border-solid border-black rounded"
           id="champ"
           type="text"
           value={curChamp}
