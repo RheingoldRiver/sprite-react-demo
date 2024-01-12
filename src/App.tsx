@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toNumber } from "lodash";
 import Sprite from "./components/sprite/Sprite";
+import data from "./components/sprite/data.json";
 
 function App() {
   const [width, setWidth] = useState(30);
@@ -9,6 +10,8 @@ function App() {
   const [curHeight, setCurHeight] = useState(height);
   const [champ, setChamp] = useState("Seraphine");
   const [curChamp, setCurChamp] = useState(champ);
+
+  const curChampData = data.sprites[curChamp as keyof typeof data.sprites] ?? data.sprites["-1"];
 
   return (
     <div className="flex flex-col ml-4 mt-4 gap-2">
@@ -59,7 +62,34 @@ function App() {
           }}
         ></input>
       </div>
-      <Sprite width={width} height={height} val={champ} />
+      <Sprite width={width} height={height} val={champ} data={data} file="/championSprite.png" />
+      <Sprite
+        width={width}
+        height={height}
+        val={champ}
+        file="/championSprite.png"
+        sheetWidth={data.sheetWidth}
+        sheetHeight={data.sheetHeight}
+        imageWidth={data.imageWidth}
+        imageHeight={data.imageHeight}
+        x={curChampData.x}
+        y={curChampData.y}
+      />
+      <div className="w-20 h-20">
+        <Sprite val={champ} data={data} file="/championSprite.png" />
+      </div>
+      <div className="w-20 h-20">
+        <Sprite
+          val={champ}
+          file="/championSprite.png"
+          sheetWidth={data.sheetWidth}
+          sheetHeight={data.sheetHeight}
+          imageWidth={data.imageWidth}
+          imageHeight={data.imageHeight}
+          x={curChampData.x}
+          y={curChampData.y}
+        />
+      </div>
     </div>
   );
 }
